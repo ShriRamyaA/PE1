@@ -8,11 +8,10 @@ public class Palindrome {
     int sum=0;
     boolean isPalindrome;
     boolean isSumMoreThanLimit;
+    StringBuilder result=new StringBuilder();
 
-    public void checkPalindrome(){
-        System.out.println("Enter a number");
-        Scanner number=new Scanner(System.in);
-        String sNum=number.nextLine();
+    public String checkPalindrome(String sNum){
+
         int length=sNum.length();
 
         if((length%2)==0){
@@ -43,17 +42,22 @@ public class Palindrome {
             }
         }
         if((flag==length/2)||(oflag>(length/2))){
-            System.out.print(sNum+" is a palindrome");
+            isPalindrome=true;
+            result.append(isPalindrome);
+            result.append(" ");
             if(sum>25){
-                System.out.println(" and the sum of even number/s is "+sum+" and is greater than 25");
+                isSumMoreThanLimit=true;
+                result.append(isSumMoreThanLimit);
             }
             else{
-                System.out.println(" and the sum of even number/s is "+sum+" and is less than 25");
+                isSumMoreThanLimit=false;
+                result.append(isSumMoreThanLimit);
             }
         }
         else {
-            System.out.println(sNum+" is not a  palindrome.");
+            isPalindrome=false;
+            result.append(isPalindrome);
         }
-
+return result.toString();
     }
 }
